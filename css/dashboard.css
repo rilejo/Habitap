@@ -1,0 +1,229 @@
+/* --- Variables y Estilos Base --- */
+:root {
+    --color-primario: #0ea5e9; /* sky-500 */
+    --color-primario-oscuro: #0284c7; /* sky-600 */
+    --color-texto-principal: #1f2937; /* gray-800 */
+    --color-texto-secundario: #6b7280; /* gray-500 */
+    --color-fondo: #f1f5f9; /* slate-100 */
+    --color-fondo-tarjeta: #ffffff;
+    --color-borde: #e2e8f0; /* slate-200 */
+    --color-sidebar-bg: #0f172a; /* slate-900 */
+    --color-sidebar-text: #cbd5e1; /* slate-300 */
+    --color-sidebar-active: #1e293b; /* slate-800 */
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    font-size: 16px;
+}
+
+/* --- Layout Principal de la App --- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--color-sidebar-bg);
+    color: var(--color-sidebar-text);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding-left: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--color-primario);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #f8fafc; /* slate-50 */
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--color-sidebar-text);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item i {
+    font-size: 1.25rem;
+}
+
+.nav-item:hover {
+    background-color: var(--color-sidebar-active);
+    color: #f8fafc;
+}
+
+.nav-item.active {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.logout {
+    color: #fda4af; /* rose-300 */
+}
+.logout:hover {
+    background-color: var(--color-sidebar-active);
+    color: #f43f5e; /* rose-500 */
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.main-header h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+    color: var(--color-texto-secundario);
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* --- Widgets del Dashboard --- */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.widget-card {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.sales-icon { background-color: #dbeafe; color: #2563eb; } /* blue */
+.clients-icon { background-color: #dcfce7; color: #16a34a; } /* green */
+.tasks-icon { background-color: #ffedd5; color: #f97316; } /* orange */
+.revenue-icon { background-color: #e0e7ff; color: #4f46e5; } /* indigo */
+
+
+.card-content .card-title {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-texto-secundario);
+}
+.card-content .card-value {
+    margin: 0.25rem 0 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* --- Sección de Datos (Tabla) --- */
+.data-section {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.data-section h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-texto-secundario);
+    font-weight: 600;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.amount-positive { color: #16a34a; font-weight: 500; }
+.amount-negative { color: #dc2626; font-weight: 500; }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetería - Habivera</title>
+
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/paqueteria.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Scripts del SDK de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+
+    <!-- Nuestro script para esta página -->
+    <script src="js/paqueteria.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Barra de Navegación Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="ph-bold ph-buildings logo-icon"></i>
+                <h1 class="logo-text">Habivera</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="ph-bold ph-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="comunicados.html" class="nav-item">
+                    <i class="ph-bold ph-broadcast"></i>
+                    <span>Comunicados</span>
+                </a>
+                <a href="residentes.html" class="nav-item">
+                    <i class="ph-bold ph-users-three"></i>
+                    <span>Residentes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+                <a href="zonas-comunes.html" class="nav-item">
+                    <i class="ph-bold ph-soccer-ball"></i>
+                    <span>Zonas Comunes</span>
+                </a>
+                 <!-- Item activo: Paquetería -->
+                <a href="paqueteria.html" class="nav-item active">
+                    <i class="ph-bold ph-package"></i>
+                    <span>Paquetería</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-chart-bar"></i>
+                    <span>Informes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-gear"></i>
+                    <span>Configuración</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout">
+                    <i class="ph-bold ph-sign-out"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Gestión de Paquetería</h1>
+                <button id="register-package-btn" class="create-new-button">
+                    <i class="ph-bold ph-plus-circle"></i>
+                    <span>Registrar Paquete</span>
+                </button>
+            </header>
+
+            <section class="package-list-container">
+                 <div class="table-container">
+                    <table id="package-table">
+                        <thead>
+                            <tr>
+                                <th>Apartamento</th>
+                                <th>Remitente</th>
+                                <th>Fecha de Recepción</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="package-table-body">
+                            <!-- Los paquetes se cargarán aquí desde Firestore -->
+                        </tbody>
+                    </table>
+                    <p id="loading-packages-message">Cargando paquetes...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Registrar Nuevo Paquete -->
+    <div id="package-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Registrar Nuevo Paquete</h2>
+                <button id="close-package-modal-btn" class="close-button">&times;</button>
+            </div>
+            <form id="package-form" class="modal-form">
+                <div class="form-group">
+                    <label for="package-apt">Apartamento / Casa</label>
+                    <input type="text" id="package-apt" placeholder="Ej: 101 Torre A" required>
+                </div>
+                <div class="form-group">
+                    <label for="package-sender">Remitente</label>
+                    <input type="text" id="package-sender" placeholder="Ej: Mercado Libre" required>
+                </div>
+                <div class="form-group">
+                    <label for="package-notes">Observaciones (Opcional)</label>
+                    <textarea id="package-notes" rows="3" placeholder="Ej: Caja frágil"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="publish-button">Guardar Paquete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

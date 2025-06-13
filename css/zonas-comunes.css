@@ -1,0 +1,256 @@
+/* --- Estilos específicos para la página de Zonas Comunes --- */
+
+.zonas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+#loading-zones-message {
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-texto-secundario);
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+}
+
+.zona-card {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.zona-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07);
+}
+
+.zona-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #f1f5f9; /* Color de fondo mientras carga la imagen */
+}
+
+.zona-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.zona-card-content h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.zona-card-content p {
+    margin: 0 0 1.5rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.reserve-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto;
+}
+
+.reserve-button:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+/* --- ESTILOS AÑADIDOS PARA EL MODAL Y FORMULARIO --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-texto-secundario);
+}
+
+.modal-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.cancel-button {
+    background-color: #e5e7eb; /* gray-200 */
+    color: var(--color-texto-principal);
+}
+
+.publish-button {
+    background-color: var(--color-primario-oscuro);
+    color: #ffffff;
+}
+
+/* --- Estilos para el Calendario de Reservas --- */
+.reservation-modal-container {
+    max-width: 600px;
+}
+
+.calendar-container {
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.month-nav-btn {
+    background-color: transparent;
+    border: 1px solid var(--color-borde);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-grid-header, .calendar-grid-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.calendar-grid-header span {
+    font-weight: 600;
+    color: var(--color-texto-secundario);
+    font-size: 0.875rem;
+    padding-bottom: 0.5rem;
+}
+
+.calendar-day {
+    padding: 0.5rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.calendar-day.not-current-month {
+    color: var(--color-borde);
+}
+
+.calendar-day.selectable:hover {
+    background-color: #e0f2fe; /* sky-100 */
+}
+
+.calendar-day.selected {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.reserved {
+    background-color: #fecaca; /* red-200 */
+    color: #b91c1c; /* red-700 */
+    text-decoration: line-through;
+    cursor: not-allowed;
+}

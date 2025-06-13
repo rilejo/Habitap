@@ -1,0 +1,214 @@
+/* --- Estilos específicos para la página de Comunicados --- */
+
+/* --- Cabecera de la página --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.create-new-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-primario-oscuro);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.create-new-button:hover {
+    background-color: #0369a1; /* sky-700 */
+    transform: translateY(-2px);
+}
+
+.create-new-button i {
+    font-size: 1.25rem;
+}
+
+/* --- Lista de Comunicados --- */
+.comunicados-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comunicado-card {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+
+.comunicado-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+}
+
+.comunicado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.comunicado-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.comunicado-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.tag-maintenance { background-color: #e0e7ff; color: #4f46e5; } /* indigo */
+.tag-urgent { background-color: #fee2e2; color: #dc2626; } /* red */
+.tag-event { background-color: #dcfce7; color: #16a34a; } /* green */
+.tag-info { background-color: #dbeafe; color: #2563eb; } /* blue */
+
+
+.comunicado-excerpt {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.comunicado-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #9ca3af; /* gray-400 */
+}
+
+.comunicado-footer a {
+    color: var(--color-primario-oscuro);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.comunicado-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos para el Modal de Nuevo Comunicado (CORREGIDO) --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+    /* Oculto por defecto */
+    display: none; 
+    
+    /* Centra el contenido */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Clase que se añade con JS para mostrar el modal */
+.modal-overlay.is-visible {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-texto-secundario);
+}
+
+.modal-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.cancel-button {
+    background-color: #e5e7eb; /* gray-200 */
+    color: var(--color-texto-principal);
+}
+
+.publish-button {
+    background-color: var(--color-primario-oscuro);
+    color: #ffffff;
+}

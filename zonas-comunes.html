@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zonas Comunes - Habivera</title>
+
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/zonas-comunes.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Scripts del SDK de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+
+    <!-- Nuestro script para esta página -->
+    <script src="js/zonas-comunes.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Barra de Navegación Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="ph-bold ph-buildings logo-icon"></i>
+                <h1 class="logo-text">Habivera</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="ph-bold ph-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="comunicados.html" class="nav-item">
+                    <i class="ph-bold ph-broadcast"></i>
+                    <span>Comunicados</span>
+                </a>
+                <a href="residentes.html" class="nav-item">
+                    <i class="ph-bold ph-users-three"></i>
+                    <span>Residentes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+                <!-- Item activo: Zonas Comunes -->
+                <a href="zonas-comunes.html" class="nav-item active">
+                    <i class="ph-bold ph-soccer-ball"></i>
+                    <span>Zonas Comunes</span>
+                </a>
+                <a href="/paqueteria.html" class="nav-item">
+                    <i class="ph-bold ph-package"></i>
+                    <span>Paquetería</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-chart-bar"></i>
+                    <span>Informes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-gear"></i>
+                    <span>Configuración</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout">
+                    <i class="ph-bold ph-sign-out"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Reserva de Zonas Comunes</h1>
+                <button id="create-zone-btn" class="create-new-button">
+                    <i class="ph-bold ph-plus-circle"></i>
+                    <span>Crear Zona</span>
+                </button>
+            </header>
+
+            <section id="zonas-list" class="zonas-list">
+                <!-- Las tarjetas de las zonas comunes se cargarán aquí desde Firestore -->
+                <p id="loading-zones-message">Cargando zonas comunes...</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Crear Nueva Zona Común -->
+    <div id="zone-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Crear Nueva Zona</h2>
+                <button id="close-zone-modal-btn" class="close-button">&times;</button>
+            </div>
+            <form id="zone-form" class="modal-form">
+                <div class="form-group">
+                    <label for="zone-name">Nombre de la Zona</label>
+                    <input type="text" id="zone-name" placeholder="Ej: Salón Social" required>
+                </div>
+                <div class="form-group">
+                    <label for="zone-description">Descripción</label>
+                    <textarea id="zone-description" rows="4" placeholder="Ej: Capacidad para 50 personas..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="zone-image">URL de la Imagen</label>
+                    <input type="url" id="zone-image" placeholder="https://ejemplo.com/imagen.jpg" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="publish-button">Guardar Zona</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal para Reservar Zona Común -->
+    <div id="reservation-modal" class="modal-overlay">
+        <div class="modal-container reservation-modal-container">
+            <div class="modal-header">
+                <h2 id="reservation-modal-title">Reservar Salón Social</h2>
+                <button id="close-reservation-modal-btn" class="close-button">&times;</button>
+            </div>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prev-month-btn" class="month-nav-btn">&lt;</button>
+                    <h3 id="month-year-display">Junio 2025</h3>
+                    <button id="next-month-btn" class="month-nav-btn">&gt;</button>
+                </div>
+                <div class="calendar-grid-header">
+                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                </div>
+                <div id="calendar-grid-body" class="calendar-grid-body">
+                    <!-- Los días del calendario se generarán aquí -->
+                </div>
+            </div>
+            <form id="reservation-form" class="modal-form">
+                <div class="form-group">
+                    <label for="reservation-date">Fecha Seleccionada</label>
+                    <input type="text" id="reservation-date" readonly>
+                </div>
+                 <div class="form-group">
+                    <label for="resident-id">Apartamento del Residente</label>
+                    <input type="text" id="resident-id" placeholder="Ej: 101 Torre A" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="publish-button">Confirmar Reserva</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

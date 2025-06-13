@@ -1,0 +1,42 @@
+/* --- Estilos específicos para la página de Paquetería --- */
+
+.package-list-container {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+#loading-packages-message {
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-texto-secundario);
+}
+
+.action-button.deliver-button {
+    background-color: var(--color-verde);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.action-button.deliver-button:hover {
+    background-color: #15803d; /* Un verde más oscuro */
+}
+
+/* Estilos de Estado para la tabla de paquetes */
+.status-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-pendiente { background-color: #fef3c7; color: #d97706; } /* Amber */
+.status-entregado { background-color: #dcfce7; color: var(--color-verde); }

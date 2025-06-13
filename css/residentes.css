@@ -1,0 +1,46 @@
+/* --- Estilos específicos para la página de Residentes --- */
+
+.resident-list-container {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+#loading-residents-message {
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-texto-secundario);
+}
+
+.action-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.action-buttons button:hover {
+    background-color: #f1f5f9; /* slate-100 */
+}
+
+.action-buttons i {
+    font-size: 1.25rem;
+    color: var(--color-texto-secundario);
+}
+
+/* Estilos de Estado para la tabla de residentes */
+.status-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-activo { background-color: #dcfce7; color: var(--color-verde); }
+.status-inactivo { background-color: #e5e7eb; color: #4b5563; } /* gray */
+.status-en_mora { background-color: #fee2e2; color: var(--color-rojo); }

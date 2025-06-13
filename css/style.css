@@ -1,0 +1,192 @@
+/* * Hoja de estilos principal de la aplicación.
+ * CSS tradicional sin frameworks.
+ */
+
+/* --- Variables y Estilos Base --- */
+:root {
+    --color-primario: #0ea5e9; /* sky-500 */
+    --color-primario-oscuro: #0284c7; /* sky-600 */
+    --color-texto-principal: #1f2937; /* gray-800 */
+    --color-texto-secundario: #6b7280; /* gray-500 */
+    --color-fondo-claro: #f9fafb; /* gray-50 */
+    --color-borde: #d1d5db; /* gray-300 */
+    --color-blanco: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-principal);
+}
+
+/* --- Contenedor Principal y Fondo --- */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, #e0f2fe, #38bdf8); /* Degradado de sky-200 a sky-500 */
+    padding: 1rem;
+}
+
+/* --- Tarjeta de Inicio de Sesión --- */
+.login-card {
+    width: 100%;
+    max-width: 28rem; /* 448px */
+    background-color: var(--color-blanco);
+    border-radius: 1rem; /* 16px */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2rem; /* 32px */
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: scale(1.02);
+}
+
+/* --- Logo --- */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-container svg {
+    width: 4rem; /* 64px */
+    height: 4rem; /* 64px */
+    color: var(--color-primario-oscuro);
+}
+
+/* --- Títulos --- */
+.header-text {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.header-text h1 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    margin: 0;
+}
+
+.header-text p {
+    color: var(--color-texto-secundario);
+    margin-top: 0.5rem;
+}
+
+/* --- Formulario --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espacio entre elementos del formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.form-label {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 0.75rem 1rem;
+    background-color: var(--color-fondo-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho total */
+}
+
+.form-input::placeholder {
+    color: #9ca3af; /* gray-400 */
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+}
+
+/* --- Enlaces y Botones --- */
+.forgot-password-link {
+    font-size: 0.875rem;
+    color: var(--color-primario-oscuro);
+    text-decoration: none;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #0369a1; /* sky-700 */
+    transform: scale(1.02);
+}
+
+/* --- Divisor y Enlace de Registro --- */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--color-borde);
+    z-index: 1;
+}
+
+.divider span {
+    position: relative;
+    background-color: var(--color-blanco);
+    padding: 0 0.5rem;
+    color: var(--color-texto-secundario);
+    font-size: 0.875rem;
+    z-index: 2;
+}
+
+.signup-link-container {
+    text-align: center;
+}
+
+.signup-link {
+    font-weight: 500;
+    color: var(--color-primario-oscuro);
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+

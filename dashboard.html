@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Habivera</title>
+
+    <!-- Enlace a la hoja de estilos del Dashboard -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Incluyendo la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de Phosphor Icons para la UI -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="app-layout">
+        <!-- Barra de Navegación Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="ph-bold ph-buildings logo-icon"></i>
+                <h1 class="logo-text">Habivera</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="ph-bold ph-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="comunicados.html" class="nav-item">
+                    <i class="ph-bold ph-broadcast"></i>
+                    <span>Comunicados</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-users-three"></i>
+                    <span>Residentes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+                <a href="/zonas-comunes.html" class="nav-item">
+                    <i class="ph-bold ph-soccer-ball"></i>
+                    <span>Zonas Comunes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-package"></i>
+                    <span>Paquetería</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-chart-bar"></i>
+                    <span>Informes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-bold ph-gear"></i>
+                    <span>Configuración</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout">
+                    <i class="ph-bold ph-sign-out"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Encabezado del Contenido Principal -->
+            <header class="main-header">
+                <h2>Bienvenido, Administrador</h2>
+                <div class="user-profile">
+                    <i class="ph ph-bell notification-icon"></i>
+                    <img src="https://placehold.co/40x40/0ea5e9/ffffff?text=A" alt="Imagen de perfil" class="profile-avatar">
+                </div>
+            </header>
+
+            <!-- Sección de Widgets o Tarjetas -->
+            <section class="dashboard-widgets">
+                <div class="widget-card">
+                    <div class="card-icon wallet-icon">
+                        <i class="ph-bold ph-wallet"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title">Pagos Recibidos (Mes)</p>
+                        <p class="card-value">$ 12.5M</p>
+                    </div>
+                </div>
+                <div class="widget-card">
+                    <div class="card-icon warning-icon">
+                        <i class="ph-bold ph-warning-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title">Cartera Vencida</p>
+                        <p class="card-value">$ 2.3M</p>
+                    </div>
+                </div>
+                <div class="widget-card">
+                    <div class="card-icon pqr-icon">
+                        <i class="ph-bold ph-list-checks"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title">Solicitudes (PQR)</p>
+                        <p class="card-value">8</p>
+                    </div>
+                </div>
+                 <div class="widget-card">
+                    <div class="card-icon packages-icon">
+                        <i class="ph-bold ph-package"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title">Paquetes por Entregar</p>
+                        <p class="card-value">15</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Actividad Reciente -->
+            <section class="data-section">
+                <h3>Actividad Reciente</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Concepto</th>
+                                <th>Apartamento</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12 Jun, 2025</td>
+                                <td>Pago de Administración</td>
+                                <td>101 Torre A</td>
+                                <td class="status-paid">Pagado</td>
+                            </tr>
+                            <tr>
+                                <td>11 Jun, 2025</td>
+                                <td>Reserva Salón Social</td>
+                                <td>502 Torre B</td>
+                                <td class="status-pending">Pendiente</td>
+                            </tr>
+                             <tr>
+                                <td>11 Jun, 2025</td>
+                                <td>Nueva solicitud (PQR)</td>
+                                <td>304 Torre A</td>
+                                <td class="status-open">Abierta</td>
+                            </tr>
+                             <tr>
+                                <td>10 Jun, 2025</td>
+                                <td>Paquete recibido</td>
+                                <td>801 Torre C</td>
+                                <td class="status-delivered">Entregado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
