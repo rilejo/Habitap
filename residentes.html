@@ -15,12 +15,11 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <!-- Scripts del SDK de Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 
-    <!-- Nuestro script para esta página -->
-    <script src="js/residentes.js" defer></script>
-</head>
+        </head>
 <body>
     <div class="app-layout">
         <!-- Barra de Navegación Lateral (Sidebar) -->
@@ -59,7 +58,7 @@
                     <i class="ph-bold ph-chart-bar"></i>
                     <span>Informes</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="estructura.html" class="nav-item">
                     <i class="ph-bold ph-gear"></i>
                     <span>Configuración</span>
                 </a>
@@ -117,8 +116,16 @@
                     <input type="text" id="resident-name" placeholder="Ej: Carlos Rodriguez" required>
                 </div>
                 <div class="form-group">
-                    <label for="resident-apt">Apartamento / Casa</label>
-                    <input type="text" id="resident-apt" placeholder="Ej: Torre 1 Apto 501" required>
+                    <label for="tower-select">Torre</label>
+                    <select id="tower-select" required>
+                        <option value="">Selecciona una torre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="apartment-select">Apartamento</label>
+                    <select id="apartment-select" disabled required>
+                        <option value="">Selecciona un apartamento</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="resident-phone">Teléfono</label>
@@ -143,5 +150,6 @@
             </form>
         </div>
     </div>
+    <script src="js/residentes.js"></script>
 </body>
 </html>

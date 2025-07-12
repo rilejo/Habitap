@@ -1,11 +1,12 @@
 
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Iniciar Sesión - Habivera</title>
 
-    <!-- Ruta a la nueva hoja de estilos CSS -->
+    <!-- Enlace a la hoja de estilos CSS -->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Incluyendo la fuente Inter de Google Fonts -->
@@ -13,10 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100">
 
     <div class="main-container">
-
         <div class="login-card">
             
             <div class="logo-container">
@@ -24,24 +24,14 @@
             </div>
 
             <div class="header-text">
-                <h1>Bienvenido de Nuevo</h1>
+                <h1>Bienvenido a Habivera</h1>
                 <p>Ingresa tus credenciales para continuar.</p>
             </div>
 
             <form class="login-form">
                 <div class="form-group">
-                    <div class="form-group-header">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                    </div>
-                    <input 
-                        id="email" 
-                        name="email" 
-                        type="email" 
-                        autocomplete="email" 
-                        required 
-                        class="form-input"
-                        placeholder="tu@email.com"
-                    >
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required class="form-input" placeholder="tu@email.com">
                 </div>
 
                 <div class="form-group">
@@ -49,15 +39,7 @@
                         <label for="password" class="form-label">Contraseña</label>
                         <a href="#" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
                     </div>
-                    <input 
-                        id="password" 
-                        name="password" 
-                        type="password" 
-                        autocomplete="current-password" 
-                        required 
-                        class="form-input"
-                        placeholder="••••••••"
-                    >
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="form-input" placeholder="••••••••">
                 </div>
 
                 <div class="form-group">
@@ -68,19 +50,23 @@
             </form>
 
             <div class="divider">
-              <span>O crea una cuenta</span>
+              <span>¿No tienes una cuenta?</span>
             </div>
 
             <div class="signup-link-container">
                 <a href="#" class="signup-link">
-                    Regístrate aquí
+                    Contacta a tu administrador
                 </a>
             </div>
-
         </div>
     </div>
 
-    <!-- Enlace al archivo JavaScript -->
-    <script src="js/script.js"></script>
+    <!-- Scripts del SDK de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
+
+    <!-- ¡NUEVO! Enlazando al script de autenticación -->
+    <script src="js/auth.js" defer></script>
 </body>
 </html>

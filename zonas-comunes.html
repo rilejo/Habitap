@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +19,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
 
-    <!-- Nuestro script para esta página -->
+    <!-- Scripts de la aplicación -->
+    <script src="js/main.js" defer></script>
     <script src="js/zonas-comunes.js" defer></script>
 </head>
 <body>
@@ -51,7 +53,7 @@
                     <i class="ph-bold ph-soccer-ball"></i>
                     <span>Zonas Comunes</span>
                 </a>
-                <a href="/paqueteria.html" class="nav-item">
+                <a href="paqueteria.html" class="nav-item">
                     <i class="ph-bold ph-package"></i>
                     <span>Paquetería</span>
                 </a>
@@ -59,7 +61,7 @@
                     <i class="ph-bold ph-chart-bar"></i>
                     <span>Informes</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="estructura.html" class="nav-item">
                     <i class="ph-bold ph-gear"></i>
                     <span>Configuración</span>
                 </a>
@@ -72,8 +74,23 @@
             </div>
         </aside>
 
+        <!-- Overlay para el menú móvil -->
+        <div class="sidebar-overlay"></div>
+
         <!-- Contenido Principal -->
         <main class="main-content">
+            <header class="main-header">
+                <!-- Botón de menú hamburguesa -->
+                <button class="mobile-menu-button">
+                    <i class="ph ph-list"></i>
+                </button>
+                <h2>Zonas Comunes</h2>
+                <div class="user-profile">
+                    <i class="ph ph-bell notification-icon"></i>
+                    <img src="https://placehold.co/40x40/0ea5e9/ffffff?text=A" alt="Imagen de perfil" class="profile-avatar">
+                </div>
+            </header>
+            
             <header class="page-header">
                 <h1>Reserva de Zonas Comunes</h1>
                 <button id="create-zone-btn" class="create-new-button">

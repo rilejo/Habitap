@@ -12,19 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Iconos de Phosphor Icons para la UI -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <!-- Scripts del SDK de Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
 
-    <!-- Nuestro script, 'defer' asegura que se ejecute después -->
+    <!-- Scripts de la aplicación -->
+    <script src="js/main.js" defer></script>
     <script src="js/comunicados.js" defer></script>
 </head>
 <body>
+
     <div class="app-layout">
-        <!-- Barra de Navegación Lateral (Sideba) -->
+        <!-- Barra de Navegación Lateral (Sidebar) -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <i class="ph-bold ph-buildings logo-icon"></i>
@@ -39,7 +40,7 @@
                     <i class="ph-bold ph-broadcast"></i>
                     <span>Comunicados</span>
                 </a>
-                <a href="/residentes.html" class="nav-item">
+                <a href="residentes.html" class="nav-item">
                     <i class="ph-bold ph-users-three"></i>
                     <span>Residentes</span>
                 </a>
@@ -47,11 +48,11 @@
                     <i class="ph-bold ph-credit-card"></i>
                     <span>Pagos</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="zonas-comunes.html" class="nav-item">
                     <i class="ph-bold ph-soccer-ball"></i>
                     <span>Zonas Comunes</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="paqueteria.html" class="nav-item">
                     <i class="ph-bold ph-package"></i>
                     <span>Paquetería</span>
                 </a>
@@ -59,7 +60,7 @@
                     <i class="ph-bold ph-chart-bar"></i>
                     <span>Informes</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="/estructura.html" class="nav-item">
                     <i class="ph-bold ph-gear"></i>
                     <span>Configuración</span>
                 </a>
@@ -71,9 +72,23 @@
                 </a>
             </div>
         </aside>
+        
+        <!-- Overlay para el menú móvil -->
+        <div class="sidebar-overlay"></div>
 
         <!-- Contenido Principal -->
         <main class="main-content">
+            <header class="main-header">
+                <button class="mobile-menu-button">
+                    <i class="ph ph-list"></i>
+                </button>
+                <h2>Comunicados</h2>
+                <div class="user-profile">
+                    <i class="ph ph-bell notification-icon"></i>
+                    <img src="https://placehold.co/40x40/0ea5e9/ffffff?text=A" alt="Imagen de perfil" class="profile-avatar">
+                </div>
+            </header>
+
             <header class="page-header">
                 <h1>Gestión de Comunicados</h1>
                 <button id="open-modal-btn" class="create-new-button">
@@ -113,6 +128,15 @@
                 <div class="form-group">
                     <label for="comunicado-mensaje">Mensaje</label>
                     <textarea id="comunicado-mensaje" rows="6" placeholder="Escribe el contenido del comunicado aquí..." required></textarea>
+                </div>
+                <!-- NUEVOS CAMPOS -->
+                <div class="form-group">
+                    <label for="comunicado-imagen">URL de la Imagen (Opcional)</label>
+                    <input type="url" id="comunicado-imagen" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="comunicado-archivo">URL del Archivo Adjunto (Opcional)</label>
+                    <input type="url" id="comunicado-archivo" placeholder="https://ejemplo.com/documento.pdf">
                 </div>
                 <div class="form-actions">
                     <button type="button" class="cancel-button">Cancelar</button>

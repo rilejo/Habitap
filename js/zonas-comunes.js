@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. Configuración de Firebase ---
@@ -194,8 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
     db.collection('zonasComunes').orderBy('createdAt', 'desc').onSnapshot(snapshot => {
         zonasList.innerHTML = '';
         if (snapshot.empty) {
-            loadingMessage.textContent = 'No hay zonas comunes registradas. ¡Añade la primera!';
-            zonasList.appendChild(loadingMessage);
+            const loadingMsg = document.createElement('p');
+            loadingMsg.id = 'loading-zones-message';
+            loadingMsg.textContent = 'No hay zonas comunes registradas. ¡Añade la primera!';
+            zonasList.appendChild(loadingMsg);
         } else {
             snapshot.docs.forEach(doc => renderZone(doc));
         }

@@ -1,3 +1,4 @@
+
 /* * Hoja de estilos principal de la aplicación.
  * CSS tradicional sin frameworks.
  */
@@ -189,4 +190,3 @@ body {
 .signup-link:hover {
     text-decoration: underline;
 }
-

@@ -1,3 +1,4 @@
+
 // Esperar a que el DOM y los scripts de Firebase estén listos
 document.addEventListener('DOMContentLoaded', () => {
 
